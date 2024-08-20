@@ -2,7 +2,6 @@
 
 name: Komodo CD test releases
 
-
 on:
   push:
     branches:
@@ -10,6 +9,7 @@ on:
     - dev
     - research
     - master
+  workflow_dispatch:
 
 jobs:
 
@@ -30,7 +30,7 @@ jobs:
         id: shortify_commit
 
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install deps (Linux)
         env:
@@ -76,28 +76,41 @@ jobs:
 
   osx-build:
     name: OSX Build
-    runs-on: macos-latest
+    if: ${{ github.event_name != 'workflow_dispatch' }}
+    runs-on: macos-latest-large
+
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+
+      # Workaround for https://github.com/actions/setup-python/issues/577
+      - name: Clean up binaries and links (macOS)
+        run: |
+          rm -f /usr/local/bin/2to3-3.*
+          rm -f /usr/local/bin/idle3.*
+          rm -f /usr/local/bin/pydoc3.*
+          rm -f /usr/local/bin/python3.*
+          rm -f /usr/local/bin/2to3
+          rm -f /usr/local/bin/idle3
+          rm -f /usr/local/bin/pydoc3
+          rm -f /usr/local/bin/python3
+          rm -f /usr/local/bin/python3-config
+
       - name: Install deps (macOS)
         run: |
-          rm '/usr/local/bin/2to3'
-          brew unlink node
           brew update
-          brew upgrade || true
           brew tap discoteq/discoteq; brew install flock
           brew install autoconf autogen automake
-          brew install gcc@8
           brew install binutils
           brew install protobuf
           brew install coreutils
           brew install wget
           brew install python3
-          brew install gmp
+
       - name: Build (macOS)
         run: |
           ./zcutil/build-mac.sh -j4
           zip --junk-paths komodo-osx src/komodod src/komodo-cli
+
       - name: Upload komodo-osx.zip as artifact
         uses: actions/upload-artifact@v1
         with:
@@ -106,10 +119,11 @@ jobs:
 
   windows-build:
     name: Windows Build (mingw)
+    if: ${{ github.event_name != 'workflow_dispatch' }}
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install deps (Windows)
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -140,6 +154,7 @@ jobs:
 
   publish-release:
       name: Publishing CD releases
+      if: ${{ github.event_name != 'workflow_dispatch' }}
       runs-on: ubuntu-20.04
       needs: [linux-build, osx-build, windows-build]
       steps:
