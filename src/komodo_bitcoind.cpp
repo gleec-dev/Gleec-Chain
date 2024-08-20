@@ -2057,12 +2057,11 @@ int32_t komodo_checkPOW(int64_t stakeTxValue, int32_t slowflag,CBlock *pblock,in
                                blk.vtx[0].vout[0].nValue <= blockReward &&
                                blk.vtx[0].vout[1].scriptPubKey.IsOpReturn();
 
-        LogPrintf("KIP0003 check for NN: ht.%d, hash.%s - %s\n",
-                  height, blk.GetHash().ToString(),
-                  fKIP0003Checked ? "PASSED!" : "FAILED!");
+        LogPrint("hfnet", "KIP0003 check for NN: ht.%d, hash.%s - %s\n",
+                 height, blk.GetHash().ToString(),
+                 fKIP0003Checked ? "PASSED!" : "FAILED!");
 
-        // Uncomment the following line if you need to return -1 on failure
-        // if (!fKIP0003Checked) return -1;
+        if (!fKIP0003Checked) return -1;
     }
 
     //fprintf(stderr,"komodo_checkPOW possible.%d slowflag.%d ht.%d notaryid.%d failed.%d\n",possible,slowflag,height,notaryid,failed);
