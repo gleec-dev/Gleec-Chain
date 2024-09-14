@@ -11,50 +11,38 @@
 [![discord](https://img.shields.io/discord/412898016371015680)](https://discord.gg/tvp96Gf)
 
 ---
-![Komodo Logo](https://i.imgur.com/E8LtkAa.png "Komodo Logo")
+![Gleec Logo](https://imgur.com/a/Xm13MQx "Gleec Logo")
 
 
-## Komodo
+## Gleec Coin
 
-This is the official Komodo sourcecode repository based on https://github.com/jl777/komodo. 
+This is the official Gleec sourcecode repository based on https://github.com/jl777/komodo. 
 
 ## Development Resources
 
-- Komodo Website: [https://komodoplatform.com](https://komodoplatform.com/)
-- Komodo Blockexplorer: [https://kmdexplorer.io](https://kmdexplorer.io/)
-- Komodo Discord: [https://komodoplatform.com/discord](https://komodoplatform.com/discord)
-- Forum: [https://forum.komodoplatform.com](https://forum.komodoplatform.com/)
-- Mail: [info@komodoplatform.com](mailto:info@komodoplatform.com)
-- Support: [https://support.komodoplatform.com/support/home](https://support.komodoplatform.com/support/home)
-- Knowledgebase & How-to: [https://support.komodoplatform.com/en/support/solutions](https://support.komodoplatform.com/en/support/solutions)
+- Gleec Website: [https://gleec.com/](https://gleec.com/)
+- Gleec Blockexplorer: [https://gleec.xyz/](https://gleec.xyz/)
+- Gleec Telegram: [https://t.me/officialgleecoin](https://t.me/officialgleecoin)
+- Mail: [info@gleec.com](mailto:info@gleec.com)
 - API references & Dev Documentation: [https://developers.komodoplatform.com](https://developers.komodoplatform.com/)
-- Blog: [https://blog.komodoplatform.com](https://blog.komodoplatform.com/)
-- Whitepaper: [Komodo Whitepaper](https://komodoplatform.com/whitepaper)
-- Komodo Platform public material: [Komodo Platform public material](https://docs.google.com/document/d/1AbhWrtagu4vYdkl-vsWz-HSNyNvK-W-ZasHCqe7CZy0)
 
-## List of Komodo Platform Technologies
+## List of Gleec Coin Technologies
 
 - Delayed Proof of Work (dPoW) - Additional security layer and Komodos own consensus algorithm  
 - zk-SNARKs - Komodo Platform's privacy technology for shielded transactions  
 - Tokens/Assets Technology - create "colored coins" on the Komodo Platform and use them as a layer for securites  
-- Reward API - Komodo CC technology for securities  
 - CC - Crypto Conditions to realize "smart contract" logic on top of the Komodo Platform  
-- Jumblr - Decentralized tumbler for KMD and other cryptocurrencies  
-- Assetchains - Create your own Blockchain that inherits all Komodo Platform functionalities and blockchain interoperability  
-- Pegged Assets - Chains that maintain a peg to fiat currencies  
-- Peerchains - Scalability solution where sibling chains form a network of blockchains  
 - More in depth covered [here](https://docs.google.com/document/d/1AbhWrtagu4vYdkl-vsWz-HSNyNvK-W-ZasHCqe7CZy0)  
-- Also note you receive 5% Active User Reward on your balance.  
 [See this article for more details](https://support.komodoplatform.com/en/support/solutions/articles/29000024515-how-to-claim-the-kmd-active-user-reward-in-agama)
 
 ## Tech Specification
-- Max Supply: 200 million KMD
+- Max Supply: 1,000,000,000 GLEEC
 - Block Time: 60 seconds
-- Block Reward: 3 KMD
+- Block Reward: 0 GLEEC
 - Mining Algorithm: Equihash
 
 ## About this Project
-Komodo is based on Zcash and has been extended by our innovative consensus algorithm called dPoW which utilizes Bitcoin's hashrate to store Komodo blockchain information into the Bitcoin blockchain. Other new and native Komodo features are the privacy technology called JUMBLR, our assetchain capabilities (one click plug and play blockchain solutions) and a set of financial decentralization and interoperability technologies. More details are available under https://komodoplatform.com/ and https://blog.komodoplatform.com.
+Gleec provides a digital ecosystem that includes its own cryptocurrency called Gleec Coin, a digital wallet, and an exchange platform for trading cryptocurrencies. The company aims to facilitate secure and efficient transactions by leveraging blockchain technology.
 
 ## Getting started
 
@@ -129,31 +117,24 @@ cd komodo
 ```
 **komodo is experimental and a work-in-progress.** Use at your own risk.
 
-To reset the Komodo blockchain change into the *~/.komodo* data directory and delete the corresponding files by running `rm -rf blocks chainstate debug.log komodostate db.log`
+To reset the Komodo blockchain change into the *~/.komodo/GLEEC* data directory and delete the corresponding files by running `rm -rf blocks chainstate debug.log komodostate db.log`
 
-#### Create komodo.conf
+#### Create gleec.conf
 
-Create a komodo.conf file:
+Create a gleec.conf file:
 
 ```
-mkdir ~/.komodo
-cd ~/.komodo
-touch komodo.conf
+mkdir ~/.komodo/GLEEC
+cd ~/.komodo/GLEEC
+touch gleec.conf
 
-#Add the following lines to the komodo.conf file:
+#Add the following lines to the gleec.conf file:
 rpcuser=yourrpcusername
 rpcpassword=yoursecurerpcpassword
 rpcbind=127.0.0.1
 txindex=1
-addnode=77.75.121.138
-addnode=95.213.238.100
-addnode=94.130.148.142
-addnode=103.6.12.105
-addnode=139.99.209.214
-addnode=185.130.212.13
-addnode=5.9.142.219
-addnode=200.25.4.38
-addnode=139.99.136.148
+addnode=135.181.80.132
+addnode=135.181.80.132
 
 ```
 ### Create your own Blockchain based on Komodo
