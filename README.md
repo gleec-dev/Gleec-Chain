@@ -11,7 +11,7 @@
 [![discord](https://img.shields.io/discord/412898016371015680)](https://discord.gg/tvp96Gf)
 
 ---
-![Gleec Logo](https://imgur.com/a/Xm13MQx "Gleec Logo")
+![Gleec Logo](https://i.imgur.com/lQZRqeV.png "Gleec Logo")
 
 
 ## Gleec Coin
