@@ -40,6 +40,7 @@ This is the official Gleec sourcecode repository based on https://github.com/jl7
 - Block Time: 60 seconds
 - Block Reward: 0 GLEEC
 - Mining Algorithm: Equihash
+- Startup command: ./komodod -ac_name=GLEEC -ac_supply=1000000000 -ac_end=1 -ac_public=1 -ac_staked=50 -addnode=65.21.52.182 -addnode=135.181.80.132
 
 ## About this Project
 Gleec provides a digital ecosystem that includes its own cryptocurrency called Gleec Coin, a digital wallet, and an exchange platform for trading cryptocurrencies. The company aims to facilitate secure and efficient transactions by leveraging blockchain technology.
